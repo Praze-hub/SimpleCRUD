@@ -1,0 +1,40 @@
+@model List<UserData>
+
+@{
+    ViewData["Title"] = "User Profiles";
+}
+
+<h2>All Users</h2>
+<a asp-controller="User" asp-action="AddUser" class="btn btn-primary">Add User</a>
+<div class="text-center">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th colspan="3">Actions</th>
+            </tr>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.FirstName @item.LastName</td>
+                        <td>
+                            <a asp-controller="User" asp-action="Details" asp-route-id="@item.ID" class="btn btn-primary">See Details</a>
+                        </td>
+                        <td>
+                            <a asp-controller="User" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-info">Edit</a>
+                        </td>
+                        <td>
+                            <a asp-controller="User" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

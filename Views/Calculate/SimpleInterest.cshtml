@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Simple Interest";
+}
+
+<div class="text-center">
+<h1 class="display-4">Calculate the interest of any amount</h1>
+
+    <div class="row">
+        <div class="col-5">
+            <form asp-controller="Calculate" asp-action = "SimpleInterest" method="POST">
+             <input type="text" name="amount" class="form-control" placeholder="Amount">
+                <input type="text" name="months" class="form-control mt-3" placeholder="Months">
+                <input type="text" name="rate" class="form-control mt-3" placeholder="Rate">
+                <button type="submit" class="btn btn-primary mt-3">Calculate Simple Interest</button>
+            
+            </form>
+            @if(ViewBag.Amount != null)
+            {
+                <p>Amount: @ViewBag.Amount</p>
+            }
+            @if(ViewBag.Months != null){
+                <p>Months: @ViewBag.Months</p>
+            }
+            @if(ViewBag.Rate != null){
+                <p>Rate: @ViewBag.Rate</p>
+            }
+            @if(ViewBag.Interest != null){
+
+                <p>Interest: @ViewBag.Interest</p>
+            }
+            @if(ViewBag.ErrorMessage != null)
+            {
+                <p class = "text-danger">Error: @ViewBag.ErrorMessage</p>
+            }
+
+
+            </div>
+    </div>
+</div>

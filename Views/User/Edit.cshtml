@@ -1,0 +1,21 @@
+@model UserData
+
+@{
+    ViewData["Title"] = "Edit User Profiles";
+}
+
+<h2>Edit User</h2>
+
+<div class="row">
+    <div class="col-5">
+        <form asp-controller="User" asp-action="Edit" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="text" asp-for="FirstName" class="form-control mt-2" placeholder="First name" required/>
+            <input type="text" asp-for="LastName" class="form-control mt-2" placeholder="Last name" required/>
+            <input type="text" asp-for="Location" class="form-control mt-2" placeholder="Location" required/>
+            <input type="tel" asp-for="PhoneNumber"  class="form-control mt-2" placeholder="Phone number" required/>
+            <input type="email" asp-for="Email" class="form-control mt-2" placeholder="Email" required/>
+            <button type="submit" class="btn btn-primary w-100 mt-2">Submit</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+@model UserData
+
+@{
+    ViewData["Title"] = "User Profiles";
+}
+
+<h2>All Users</h2>
+<a asp-controller="User" asp-action="AddUser" class="btn btn-primary">Add User</a>
+<div class="text-center">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Location</th>
+                <th>Email</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null){
+                <tr>
+                    <td>@Model.FirstName @Model.LastName</td>
+                    <td>@Model.PhoneNumber</td>
+                    <td>@Model.Location</td>
+                    <td>@Model.Email</td>
+                    <td>
+                        <a asp-controller="User" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-info">Edit</a>
+                    </td>
+                    <td >
+                        <a asp-contoller="User" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Delete</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

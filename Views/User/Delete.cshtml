@@ -1,0 +1,45 @@
+@model UserData
+
+@{
+    ViewData["Title"] = " Delete User Profiles";
+}
+
+<h2>Are you sure you want to Delete @Model.FirstName @Model.LastName</h2>
+<div class="text-center">
+    <form asp-controller = "User" asp-action="Delete" method="post">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Location</th>
+                <th>Email</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null){
+                <tr>
+                    <td>@Model.FirstName @Model.LastName</td>
+                    <td>@Model.PhoneNumber</td>
+                    <td>@Model.Location</td>
+                    <td>@Model.Email</td>
+
+                     <td>
+                            <button type="submit"  class="btn btn-danger">
+                                Delete
+                            </button>
+                        </td>
+   
+                
+                    
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    </form>
+</div> 
+
+
+
